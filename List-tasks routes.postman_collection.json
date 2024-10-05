@@ -1,0 +1,1197 @@
+{
+	"info": {
+		"_postman_id": "b65d51d1-cde1-4098-bb15-891ae886db7e",
+		"name": "List-tasks routes",
+		"description": "Rotas api da aplicação List-tasks, aplicação desenvolvida para atividade 2 de laboratório de desenvolvimento web III e funcionalidades adicionais para utilizar projeto como portfolio.\n\ngithub: [https://github.com/lucasdwn](https://github.com/lucasdwn)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24836916"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\",\r\n    \"senha\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"{{refresh-token}}\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/refresh-token",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Rotas de autenticação.\n\nEssas rotas são abertas para a autenticação do usuario.\n\n\\- login  \n\\- refresh-token"
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Criar usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"\",\r\n    \"email\": \"\",\r\n    \"senha\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuario",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/list",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar usuario por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/profile/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"profile",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar usuario atual",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/currentUser",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"currentUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nome",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/usuario/update",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar usuario Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/usuario/delete",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"usuario",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Rotas do usuário.\n\n- Criar usuario - Aberta para o publico.\n    \n- Listar usuarios - Necessário autenticação.\n    \n- Buscar usuario por id - Necessário autenticação.\n    \n- Buscar usuario atual - Necessário autenticação.\n    \n- Editar usuario - Necessário autenticação.\n    \n- Deletar usuario - Necessário autenticação.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Upload",
+			"item": [
+				{
+					"name": "Upload Imagem",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/upload/image",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"upload",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Documento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "documents",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/upload/documents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"upload",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Rotas de uploads.\n\n- Imagem - Necessário autenticação.\n    \n- Documentos - Necessário autenticação."
+		},
+		{
+			"name": "Prioridades",
+			"item": [
+				{
+					"name": "Criar prioridade",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/prioridade/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"prioridade",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar prioridade",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/prioridade/update/:prioridadeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"prioridade",
+								"update",
+								":prioridadeId"
+							],
+							"variable": [
+								{
+									"key": "prioridadeId",
+									"value": "66fab343011602653bb39904"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar prioridades",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/prioridade/list?search=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"prioridade",
+								"list"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar prioridade",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/prioridade/findOne/:prioridadeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"prioridade",
+								"findOne",
+								":prioridadeId"
+							],
+							"variable": [
+								{
+									"key": "prioridadeId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar prioridade",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/prioridade/delete/:prioridadeId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"prioridade",
+								"delete",
+								":prioridadeId"
+							],
+							"variable": [
+								{
+									"key": "prioridadeId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todas prioridades",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/prioridade/listAll?search=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"prioridade",
+								"listAll"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Rotas de prioridades.\n\n- Criar prioridade - Necessário autenticação.\n    \n- Editar prioridade - Necessário autenticação.\n    \n- Listar todas prioridades - Necessário autenticação.\n    \n- Listar prioridades - Necessário autenticação.\n    \n- Buscar prioridade - Necessário autenticação.\n    \n- Deletar prioridade - Necessário autenticação."
+		},
+		{
+			"name": "Listas",
+			"item": [
+				{
+					"name": "Criar Lista",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\",\r\n  \"tipoListaId\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/lista/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lista",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar lista",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\",\r\n  \"tipoListaId\": \"\",\r\n  \"usuariosPermitidos\": [\r\n    { \r\n        \"usuarioId\": \"\",\r\n        \"podeEditar\": true\r\n    }\r\n  ] \r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/lista/update/:listaId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lista",
+								"update",
+								":listaId"
+							],
+							"variable": [
+								{
+									"key": "listaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete lista",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/lista/delete/:listaId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lista",
+								"delete",
+								":listaId"
+							],
+							"variable": [
+								{
+									"key": "listaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar lista",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/lista/get/:listaId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lista",
+								"get",
+								":listaId"
+							],
+							"variable": [
+								{
+									"key": "listaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar listas do usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/lista/getListsUser",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lista",
+								"getListsUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar listas compartilhadas com usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/lista/getListsSharedWithMe",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lista",
+								"getListsSharedWithMe"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Rotas de Listas.\n\n- Criar Lista- Necessário autenticação.\n    \n- Buscar Listas do usuario - Necessário autenticação.\n    \n- Buscar Listas compartilhadas com o usuario - Necessário autenticação.\n    \n- Editar Lista - Necessário autenticação.\n    \n- Deletar Lista- Necessário autenticação."
+		},
+		{
+			"name": "Tarefas",
+			"item": [
+				{
+					"name": "Criar tarefas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listaId\": \"\",\r\n    \"titulo\": \"\",\r\n    \"prioridadeId\": \"\",\r\n    \"dataDeVencimento\": \"\",\r\n    \"descricao\": \"\",\r\n    \"subTarefas\": [\r\n        {\r\n            \"titulo\": \"\",\r\n            \"descricao\": \"\",\r\n            \"ordenacao\": 1\r\n        }\r\n    ],\r\n    \"anexos\": [\r\n        {\r\n            \"_id\": \"\",\r\n            \"usuarioId\": \"\",\r\n            \"originalFilename\": \"\",\r\n            \"url\": \"\",\r\n            \"criadoEm\": \"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tarefa?listaId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tarefa"
+							],
+							"query": [
+								{
+									"key": "listaId",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar tarefa",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listaId\": \"\",\r\n    \"titulo\": \"\",\r\n    \"prioridadeId\": \"\",\r\n    \"dataDeVencimento\": \"\",\r\n    \"descricao\": \"\",\r\n    \"subTarefas\": [\r\n        {\r\n            \"titulo\": \"\",\r\n            \"descricao\": \"\",\r\n            \"ordenacao\": 1\r\n        }\r\n    ],\r\n    \"anexos\": [\r\n        {\r\n            \"_id\": \"\",\r\n            \"usuarioId\": \"\",\r\n            \"originalFilename\": \"\",\r\n            \"url\": \"\",\r\n            \"criadoEm\": \"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tarefa/update/:tarefaId?listaId=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tarefa",
+								"update",
+								":tarefaId"
+							],
+							"query": [
+								{
+									"key": "listaId",
+									"value": ""
+								}
+							],
+							"variable": [
+								{
+									"key": "tarefaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar tarefas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tarefa/getTarefas?listaId=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tarefa",
+								"getTarefas"
+							],
+							"query": [
+								{
+									"key": "listaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar tarefa",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tarefa/getTarefa/:tarefaId?listaId=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tarefa",
+								"getTarefa",
+								":tarefaId"
+							],
+							"query": [
+								{
+									"key": "listaId",
+									"value": ""
+								}
+							],
+							"variable": [
+								{
+									"key": "tarefaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tarefa",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"listaId\": \"66fad5d5ecd7b054d186b581\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tarefa/delete/:tarefaId?listaId=",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tarefa",
+								"delete",
+								":tarefaId"
+							],
+							"query": [
+								{
+									"key": "listaId",
+									"value": ""
+								}
+							],
+							"variable": [
+								{
+									"key": "tarefaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoLista",
+			"item": [
+				{
+					"name": "Criar Tipo Lista",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tipoLista/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tipoLista",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Tipo Lista",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/tipoLista/update/:tipoListaId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tipoLista",
+								"update",
+								":tipoListaId"
+							],
+							"variable": [
+								{
+									"key": "tipoListaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos Tipos Lista",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tipoLista/listAll?search",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tipoLista",
+								"listAll"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Tipos Lista",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tipoLista/list?search",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tipoLista",
+								"list"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Tipo Lista",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tipoLista/findOne/:tipoListaId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tipoLista",
+								"findOne",
+								":tipoListaId"
+							],
+							"variable": [
+								{
+									"key": "tipoListaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar TipoLista",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tipoLista/delete/:tipoListaId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tipoLista",
+								"delete",
+								":tipoListaId"
+							],
+							"variable": [
+								{
+									"key": "tipoListaId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Rotas de Tipos de lista.\n\n- Criar Tipo de Lista- Necessário autenticação.\n    \n- Editar Tipo de lista - Necessário autenticação.\n    \n- Listar todos Tipos de lista- Necessário autenticação.\n    \n- Listar Tipos de lista- Necessário autenticação.\n    \n- Buscar Tipo de lista - Necessário autenticação.\n    \n- Deletar Tipo de lista - Necessário autenticação."
+		},
+		{
+			"name": "Hello World",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}",
+					"host": [
+						"{{baseUrl}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3010",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "refresh-token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "token-user-2",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
