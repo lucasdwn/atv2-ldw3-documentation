@@ -98,8 +98,49 @@ Para configurar e rodar a API do projeto, siga as instruções descritas no repo
 
 [Repositório da API - Instruções de Execução](https://github.com/lucasdwn/atv2-ldw3-api)
 
+#### Opção de Uso Rápido para a API
+
+Caso você não queira configurar a AWS para o armazenamento de arquivos, você pode utilizar o release **'Upload-Local'**, que já vem configurado para armazenar os arquivos localmente. Para isso, siga os passos abaixo:
+
+1. **Baixe o Release 'Upload-Local':**
+   - Acesse a seção de releases do repositório da API.
+   - Baixe o arquivo correspondente ao release **'Upload-Local'**.
+
+2. **Extraia e Execute:**
+   - Extraia o arquivo em uma pasta de sua escolha.
+   - Navegue até essa pasta pelo terminal.
+   - Configure as váriaveis de ambiente em `.env`.
+   - Execute o comando:
+     ```bash
+     npm install
+     npm start
+     ```
+
 ### 2. Rodar o Front-End
 
 Para configurar e rodar o front-end do projeto, siga as instruções descritas no repositório do front-end:
 
 [Repositório do Front-End - Instruções de Execução](https://github.com/lucasdwn/atv2-ldw3-front)
+
+#### Opção de Uso Rápido para o Front-End
+
+Assim como na API, caso você não queira configurar a AWS, pode usar o release **'Upload-Local'** disponível para o front-end. Para isso:
+
+1. **Baixe o Release 'Upload-Local':**
+   - Acesse a seção de releases do repositório do front-end.
+   - Baixe o arquivo correspondente ao release **'Upload-Local'**.
+
+2. **Extraia e Execute:**
+   - Extraia o arquivo em uma pasta de sua escolha.
+   - Navegue até essa pasta pelo terminal.
+   - Configure as váriaveis de ambiente em `.env`.
+   - Execute o comando:
+     ```bash
+     npm install
+     npm start
+     ```
+
+3. **Acesse a Aplicação:**
+   - Após a execução, abra seu navegador e acesse `http://localhost:3000`.
+
+Com essas configurações, você poderá testar a aplicação rapidamente em ambas as partes, sem a necessidade de configurações complexas de armazenamento em nuvem.
