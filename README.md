@@ -16,10 +16,9 @@ Este projeto é um Gerenciador de Tarefas que implementa um sistema CRUD (Create
 
 Com esta aplicação, os usuários podem gerenciar suas atividades diárias, organizar listas de tarefas, definir prioridades, criar subtarefas, anexar arquivos e compartilhar listas com outros usuários. O objetivo principal é fornecer uma ferramenta intuitiva para ajudar no planejamento e execução de tarefas, seja para projetos pessoais ou profissionais.
 
-### Apresentação em Vídeo
-[Assista Aqui](https://youtu.be/pxnRsuvfBCc)
-### Teste a aplicação
-[Acesse Aqui](https://atv2-ldw3-front.vercel.app)
+### Vídeo de demonstração - [Assista Aqui](https://youtu.be/7EGj-Smv1WI?si=ND8qLu_w066n6Nvg)
+### Apresentação em Vídeo - [Assista Aqui](https://youtu.be/pxnRsuvfBCc)
+### Teste a aplicação - [Acesse Aqui](https://atv2-ldw3-front.vercel.app)
 
 
 ## Enunciado
